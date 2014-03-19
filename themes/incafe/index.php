@@ -12,6 +12,8 @@
         <?php echo Template::renderBlock('/base/mainMenu')?>
         <hr>
         <?php echo Template::renderBlock('/base/subscribers') ?>
+        <hr><br>
+        <?php echo Template::renderBlock('/base/mainUserNews') ?>
     </div>
 
     <div class="index-blocks center-block" text-align="center">

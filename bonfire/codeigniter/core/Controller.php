@@ -31,6 +31,7 @@ class CI_Controller {
 
 	private static $instance;
 
+    public $blockName = false;
 	/**
 	 * Constructor
 	 */
@@ -45,6 +46,7 @@ class CI_Controller {
 		{
 			$this->$var =& load_class($class);
 		}
+
 
 		$this->load =& load_class('Loader', 'core');
         $this->load->helper('form');

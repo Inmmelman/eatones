@@ -48,6 +48,7 @@ class Blocks{
         $blockControllerName = 'block_'.$parsedDirArray[2];
 
         if(is_dir(BFPATH.'blocks/'.substr($blockControllerName, 6))){
+            self::$ci->blockController = $parsedDirArray[2];
             $blockClass = new $blockControllerName;
             $blockClass->run();
         }

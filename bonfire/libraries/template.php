@@ -1082,6 +1082,8 @@ EOF;
 			$data = (array)$data;
 		}
 
+
+
 		$output = '';		// Stores the final output
 		$view_path = '';	// Used to store the location of the file.
 		$active_theme_set = ! empty(self::$active_theme);	// Is the active theme set?

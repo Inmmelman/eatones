@@ -3,6 +3,7 @@
         <module name="home">
             <block type="base" name="/base/mainMenu" dir="blocks/base/block_mainMenu"/>
             <block type="base" name="/base/subscribers" dir="blocks/base/block_mainSubscribers"/>
+            <block type="base" name="/base/mainUserNews" dir="blocks/base/block_mainUserNews"/>
             <block type="base" name="/base/commercial" dir="blocks/base/block_commercial"/>
         </module>
 

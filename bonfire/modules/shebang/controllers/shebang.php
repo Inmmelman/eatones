@@ -46,6 +46,7 @@ class Shebang extends Front_Controller
 		parent::__construct();
         $this->load->model('users/user_model');
 		$this->load->model('shebang/shebang_user_model');
+		$this->load->model('shebang/shebang_event_model');
 		$this->load->library('users/auth');
         $this->load->config('fenix');
 		$this->lang->load('users');
@@ -117,7 +118,8 @@ class Shebang extends Front_Controller
 
         $shebangUserData = $this->shebang_user_model->getShebangById($shebangId);
 
-        Template::set_block('buttons_owner','/views/blocks/buttons_owner');
+
+      //  Template::set_block('buttons_owner','/views/blocks/buttons_owner');
 
         Template::set('shebang', $shebangUserData);
         Template::set_view('shebang/users/main_page');
@@ -305,6 +307,26 @@ class Shebang extends Front_Controller
 
 	}//end save_user()
 
+    public function add_event(){
+
+        $eventParams = array();
+        parse_str($_POST['params'], $eventParams);
+
+        if(empty($eventParams)  && !is_array($eventParams)){
+            echo 'fail';
+            die();
+        }
+
+        $shebangEvent = new Shebang_event_model();
+        $result = $shebangEvent->insert($eventParams);
+
+        echo $result;
+
+    }
+
+    public function load_poster(){
+
+    }
 
 }//end Users
 

@@ -176,6 +176,44 @@ class MX_Loader extends CI_Loader
 		foreach ($libraries as $_library) $this->library($_library);	
 	}
 
+
+    public function block_model($model,$blockName){
+
+        if (is_array($model)) return $this->models($model);
+
+        $_alias = basename($model);
+
+        if (in_array($_alias, $this->_ci_models, TRUE))
+            return CI::$APP->$_alias;
+
+        /* check module */
+        list($path, $_model) = Modules::find(strtolower($model), $this->_module, 'models/');
+
+        if ($path == FALSE) {
+
+            /* check application & packages */
+            parent::model($model, $object_name, $connect);
+
+        } else {
+
+            class_exists('CI_Model', FALSE) OR load_class('Model', 'core');
+
+            if ($connect !== FALSE AND ! class_exists('CI_DB', FALSE)) {
+                if ($connect === TRUE) $connect = '';
+                $this->database($connect, FALSE, TRUE);
+            }
+
+            Modules::load_file($_model, $path);
+
+            $model = ucfirst($_model);
+            CI::$APP->$_alias = new $model();
+
+            $this->_ci_models[] = $_alias;
+        }
+
+        return CI::$APP->$_alias;
+    }
+
 	/** Load a module model **/
 	public function model($model, $object_name = NULL, $connect = FALSE) {
 		

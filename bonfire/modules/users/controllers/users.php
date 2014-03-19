@@ -935,7 +935,6 @@ class Users extends Front_Controller
 
 
     public function subscribeToShebang(){
-
         $this->load->model('users/user_subscribe_model');
         $dataToInsert = array('user_id' => $this->auth->user_id(),
                               'shebang_id' =>decode_key($_POST['params'],$this->config->config['encryption_key'])
@@ -947,6 +946,19 @@ class Users extends Front_Controller
             case 1: $returnText = 'Вы подписались!';break;
             case 0: $returnText = 'Вы не смогли одписаться. Попробуйте позже';break;
             case -1: $returnText = 'Вы уже подписаны на это заведение';break;
+        }
+
+        echo $returnText ;
+    }
+
+    public function unSubscribeToShebang(){
+        $this->load->model('users/user_subscribe_model');
+
+        $status = $this->user_subscribe_model->deleteSubscribeByIdUserId($this->auth->user_id(),decode_key($_POST['params'],$this->config->config['encryption_key']));
+
+        switch($status){
+            case 1: $returnText = 'Вы успешно покинил эту бомжарню!';break;
+            case 0: $returnText = 'О_О Что то не так... Попробуйте позже';break;
         }
 
         echo $returnText ;

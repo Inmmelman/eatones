@@ -87,7 +87,7 @@ class CI_DB_mysql_driver extends CI_DB {
 		{
 			$this->hostname .= ':'.$this->port;
 		}
-
+//var_dump($this);
 		return @mysql_pconnect($this->hostname, $this->username, $this->password);
 	}
 

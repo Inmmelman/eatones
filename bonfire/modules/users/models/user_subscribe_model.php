@@ -4,15 +4,21 @@ class User_subscribe_model extends CI_Model{
     protected $table_name = 'user_subscribe';
 
 
+    public function deleteSubscribeByIdUserId($userId,$shebangId){
+        return $this->db->delete($this->table_name,array(
+                                                'user_id' => $userId,
+                                                'shebang_id' => $shebangId
+                                            ));
+    }
+
+
     public function insert($data=array()){
 
         $status = false;
 
         $query = $this->db->get_where($this->table_name,$data);
-        if ($query->num_rows())
-        {
+        if ($query->num_rows()){
             return -1;
-
         }
 
         if($query->num_rows() == 0 ){
@@ -54,13 +60,12 @@ class User_subscribe_model extends CI_Model{
         $query = $this->db->get();
         $rowCount = $query->num_rows();
 
-        if (!$rowCount)
-        {
+        if (!$rowCount){
             return false;
         }
 
         foreach($query->result() as $row){
-            $returnSubscribeArray['shebangs'][] = $row;
+            $returnSubscribeArray['shebangs'][$row->id] = $row;
         }
 
         $returnSubscribeArray['count'] = $rowCount;

@@ -38,25 +38,44 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'local';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'fenix';
-$db['default']['port']     = '3306';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = 'bf_';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = TRUE;
+    $db['local']['hostname'] = 'localhost';
+    $db['local']['username'] = 'root';
+    $db['local']['password'] = '';
+    $db['local']['database'] = 'fenix';
+    $db['local']['port']     = '3306';
+    $db['local']['dbdriver'] = 'mysql';
+    $db['local']['dbprefix'] = 'bf_';
+    $db['local']['pconnect'] = TRUE;
+    $db['local']['db_debug'] = TRUE;
+    $db['local']['cache_on'] = FALSE;
+    $db['local']['cachedir'] = '';
+    $db['local']['char_set'] = 'utf8';
+    $db['local']['dbcollat'] = 'utf8_general_ci';
+    $db['local']['swap_pre'] = '';
+    $db['local']['autoinit'] = TRUE;
+    $db['local']['stricton'] = TRUE;
+
+
+
+    $db['default']['hostname'] = 'mysql.hostinger.com.ua';
+    $db['default']['username'] = 'u279746572_fenix';
+    $db['default']['password'] = '99697509';
+    $db['default']['database'] = 'u279746572_fenix';
+    $db['default']['port']     = '3306';
+    $db['default']['dbdriver'] = 'mysql';
+    $db['default']['dbprefix'] = 'bf_';
+    $db['default']['pconnect'] = TRUE;
+    $db['default']['db_debug'] = TRUE;
+    $db['default']['cache_on'] = FALSE;
+    $db['default']['cachedir'] = '';
+    $db['default']['char_set'] = 'utf8';
+    $db['default']['dbcollat'] = 'utf8_general_ci';
+    $db['default']['swap_pre'] = '';
+    $db['default']['autoinit'] = TRUE;
+    $db['default']['stricton'] = TRUE;
 
 
 /* End of file database.php */

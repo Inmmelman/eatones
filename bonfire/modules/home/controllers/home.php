@@ -40,6 +40,7 @@ class Home extends Front_Controller
 		$this->load->library('events');
         $this->load->config('fenix');
         $this->load->model('shebang_model');
+        $this->load->model('shebang_events');
 
     }
 
@@ -58,6 +59,7 @@ class Home extends Front_Controller
         /*
          * Load main menu view
          */
+        Template::set('lastEvents',$this->shebang_events->getNewEvents());
         Template::set('newShebangs', $this->shebang_model->getNewShebangs());
         Template::set_view('home/index');
 		Template::render();

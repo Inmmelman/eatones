@@ -46,6 +46,10 @@ $route['404_override'] = '';
 $route['shebang/(:any)']	= "shebang/index/$1";
 
 $route['users/subscribe']	= "users/subscribeToShebang";
+$route['users/unsubscribe']	= "users/unSubscribeToShebang";
+
+
+$route['add_event']	= "shebang/add_event";
 
 
 // Authentication
